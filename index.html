@@ -4,87 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Souvik Saha | IMSc Chennai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS: The Style of the Website */
+        /* --- CSS VARIABLES --- */
         :root {
-            --primary-color: #2c3e50; /* Academic Blue/Grey */
-            --accent-color: #2980b9;
-            --text-color: #333;
-            --bg-color: #fff;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --primary-color: #2c3e50;    /* Deep Academic Blue */
+            --accent-color: #3498db;     /* Bright Blue for links */
+            --text-color: #444;          /* Softer black for reading */
+            --bg-body: #f4f7f6;          /* Very light grey background */
+            --bg-card: #ffffff;          /* White for content boxes */
+            --font-main: 'Lato', sans-serif;
         }
 
+        /* --- BASIC SETUP --- */
         body {
             font-family: var(--font-main);
             line-height: 1.6;
             color: var(--text-color);
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: var(--bg-body);
         }
 
         .container {
             max-width: 850px;
-            margin: 40px auto;
-            background: var(--bg-color);
-            padding: 40px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-radius: 5px;
+            margin: 50px auto;
+            background: var(--bg-card);
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Soft, modern shadow */
+            border-radius: 8px;
         }
 
-        /* Header Section */
+        /* --- HEADER SECTION --- */
         header {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 40px;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
-            background-color: #ddd; /* Placeholder for your photo */
+            width: 160px;
+            height: 160px;
+            background-color: #eee;
             border-radius: 50%;
             object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Photo pops out */
         }
 
-        h1 {
-            margin: 0 0 10px 0;
+        .header-text h1 {
+            margin: 0 0 5px 0;
             color: var(--primary-color);
+            font-weight: 700;
+            font-size: 2.2rem;
         }
 
         .subtitle {
-            font-size: 1.1em;
+            font-size: 1.1rem;
             color: #666;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
 
-        a { text-decoration: none; color: var(--accent-color); }
-        a:hover { text-decoration: underline; }
+        /* Links Styling */
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
 
-        /* Sections */
+        /* --- SECTIONS --- */
+        section {
+            margin-bottom: 50px;
+        }
+
         h2 {
             color: var(--primary-color);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 40px;
-            text-transform: uppercase;
-            font-size: 1.2em;
-            letter-spacing: 1px;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        /* Adds a small decorative blue line under headings */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
 
-        .paper-item { margin-bottom: 15px; }
-        .paper-title { font-weight: bold; }
-        .paper-venue { font-style: italic; color: #555; }
-        
-        .news-date { font-family: monospace; color: #888; margin-right: 10px; }
+        /* --- PUBLICATION CARDS (The "Fancy" Part) --- */
+        .paper-item {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color); /* Blue accent bar */
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            header { flex-direction: column; text-align: center; }
-            .container { margin: 10px; padding: 20px; }
+        /* Hover effect: lifts the paper up slightly */
+        .paper-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .paper-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .paper-venue {
+            display: inline-block;
+            background-color: #eef6fb; /* Light blue tag */
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* --- NEWS LIST --- */
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+        }
+
+        .news-date {
+            font-family: 'Consolas', monospace;
+            color: var(--primary-color);
+            font-weight: bold;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+        }
+
+        /* --- RESPONSIVE DESIGN (Mobile) --- */
+        @media (max-width: 700px) {
+            .container { margin: 0; padding: 25px; border-radius: 0; }
+            header { flex-direction: column; text-align: center; gap: 20px; }
+            h2::after { left: 50%; transform: translateX(-50%); } /* Center underline */
         }
     </style>
 </head>
@@ -102,80 +183,4 @@
                 Chennai, India
             </div>
             <p>
-                Email: souviksaha41 [AT] gmail.com <br>
-                <a href="cv.pdf">[ CV ]</a> &nbsp; <a href="https://scholar.google.com/citations?user=YKcPfVgAAAAJ&hl=en">[ Google Scholar ]</a> &nbsp; <a href="https://dblp.org/pid/257/0857-2.html">[ DBLP ]</a>
-            </p>
-        </div>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a final-year PhD student at <a href="https://www.imsc.res.in/">IMSc Chennai</a>, advised by <a href="https://sites.google.com/view/sakethome/home?authuser=0">Prof. Saket Saurabh</a>. 
-        </p>
-        <p>
-            My research interests lie broadly in algorithms with a specific focus on:
-        </p>
-        <ul>
-            <li>Parameterized Approximation Algorithms</li>
-            <li>Parameterized Complexity Theory</li>
-            <li>Graph Algorithms</li>
-        </ul>
-    </section>
-
-    <section id="news">
-        <h2>Recent News</h2>
-        <ul>
-            <li><span class="news-date">Dec 2025</span> Gave a talk on "Partial Coverage on Biclique Free Instances" at  <a href="https://mtpa25.weebly.com/">MTPA</a> at IIT Madras .</li>
-            <li><span class="news-date">Aug 2025</span> Received the ACM/IARCS and IJCAI Travel Grants.</li>
-            <li><span class="news-date">Aug 2025</span> Presented a paper at IJCAI 2025 in Guangzhou China.</li>
-        </ul>
-    </section>
-
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        
-        <div class="paper-item">
-            <span class="paper-title">Line Cover and Related Problems</span><br>
-            Matthias Benter, Fedor V. Fomin, Petr A. Golovach, <strong>Souvik Saha</strong>, Sanjay Seetharaman, Anannya Upasana.<br>
-            <span class="paper-venue">STACS 2026 (Just Accepted)</span> 
-        </div>
-
-        <div class="paper-item">
-            <span class="paper-title">Parameterized Reunion with Achromatic Number</span><br>
-            Satyabrata Jana, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
-            <span class="paper-venue">ISAAC 2025</span> 
-        </div>
-
-        <div class="paper-item">
-            <span class="paper-title">More Efforts Towards Fixed-Parameter Approximability of Multiwinner Rules</span><br>
-            Sushmita Gupta, Pallavi Jain, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
-            <span class="paper-venue">IJCAI 2025</span> 
-        </div>
-
-    
-        
-        <div class="paper-item">
-            <span class="paper-title">Parameterized Complexity of Generalizations of Edge Dominating Set</span><br>
-            Shubhada Aute, Fahad Panolan, <strong>Souvik Saha</strong>, Saket Saurabh, Anannya Upasana.<br>
-            <span class="paper-venue">SOFSEM 2025</span> 
-        </div>
-        <div class="paper-item">
-            <span class="paper-title"> Parameterized Approximation Scheme for Biclique-free Max k-Weight SAT and Max Coverage
-</span><br>
-            Pallavi Jain, Fahad Panolan, Lawqueen Kanesh, Fahad Panolan, <strong>Souvik Saha</strong>, Abhishek Sahu, Saket Saurabh, Anannya Upasana.<br>
-            <span class="paper-venue">SODA 2023</span> 
-        </div>
-    </section>
-
-    <section id="teaching">
-        <h2>Teaching & Service</h2>
-        <ul>
-            <li><strong>Teaching Assistant:</strong> Approximation Algorithms (Jan-Apr 2023), Parameterized Complexity (Jan-Apr 2022) at IMSc.</li>
-            <li><strong>Volunteer:</strong> IJCAI 2025, Guangzhou.</li>
-          <li><strong>  Local Coordinator:</strong> ACM School: "An Invitation to Algorithmic Game Theory", organized by, IMSc Chennai, ACM India and Google. </li>
-        </ul>
-    </section>
-
-</body>
-</html>
+                Email: souvik
